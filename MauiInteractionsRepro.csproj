@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net11.0-ios</TargetFramework>
+    <OutputType>Exe</OutputType>
+    <UseMaui>true</UseMaui>
+    <MauiVersion>11.0.10</MauiVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <SingleProject>true</SingleProject>
+    <SupportedOSPlatformVersion>15.0</SupportedOSPlatformVersion>
+    <RuntimeIdentifier>iossimulator-arm64</RuntimeIdentifier>
+    <ApplicationId>com.example.mauiinteractionsrepro</ApplicationId>
+    <ApplicationTitle>MauiInteractionsRepro</ApplicationTitle>
+    <SkipValidateMauiImplicitPackageReferences>true</SkipValidateMauiImplicitPackageReferences>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(NoGesturePlatformManager)' == 'true'">
+    <DefineConstants>$(DefineConstants);NO_GESTURE_PLATFORM_MANAGER</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Maui.Controls" Version="11.0.10" />
+  </ItemGroup>
+</Project>
