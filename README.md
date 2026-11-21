@@ -1,5 +1,7 @@
 # MAUI UIView.Interactions wrapper repro
 
+Repro for [dotnet/maui#40489](https://github.com/dotnet/maui/issues/40489).
+
 On iOS, .NET MAUI's `GesturePlatformManager.LoadRecognizers()` reads `UIView.Interactions` on every handler connect. .NET wraps each interaction that has no managed peer in a new `UIInteractionWrapper`, which releases its interaction from its finalizer, on the finalizer thread ([dotnet/macios#27420](https://github.com/dotnet/macios/issues/27420)). When that release is the last one, the UIKit interaction deallocs off the main thread.
 
 The app uses only public Objective-C runtime API:
